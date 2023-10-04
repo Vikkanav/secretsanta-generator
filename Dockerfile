@@ -1,5 +1,5 @@
 FROM openjdk:8u151-jdk-alpine3.7
-
+ 
 EXPOSE 8080
 
 ENV APP_HOME /usr/src/app
