@@ -45,6 +45,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/jaiswal:latest
+          tags: adijaiswal/testimage:latest
 
     
