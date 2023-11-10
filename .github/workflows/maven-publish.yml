@@ -36,7 +36,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Build and Push Docker Image
       run: |
-        docker build -t secret-santa .
+        docker build -t secret-santa /home/ubuntu/actions-runner/_work/secretsanta-generator/secretsanta-generator/
         docker tag secret-santa:latest adijaiswal/secret-santa:latest
         docker push adijaiswal/secret-santa:latest
 
