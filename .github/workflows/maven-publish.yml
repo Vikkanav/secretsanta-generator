@@ -40,4 +40,10 @@ jobs:
         docker tag secret-santa:latest adijaiswal/secret-santa:latest
         docker push adijaiswal/secret-santa:latest
 
+    - name: SonarQube Scan
+      uses: kitabisa/sonarqube-action@v1.2.0
+      with:
+        host: ${{ secrets.SONARQUBE_HOST }}
+        login: ${{ secrets.SONARQUBE_TOKEN }}
+
 
