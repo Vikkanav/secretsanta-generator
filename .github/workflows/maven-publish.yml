@@ -40,12 +40,13 @@ jobs:
         docker tag secret-santa:latest adijaiswal/secret-santa:latest
         docker push adijaiswal/secret-santa:latest
 
-    - name: SonarQube Scan
-      uses: kitabisa/sonarqube-action@v1.2.0
+    - name: Analyze with SonarQube
+      uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
+      env:
+        SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}   # Generate a token on SonarQube, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
+        SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }}   # add the URL of your instance to the secrets of this repo with the name SONAR_HOST_URL (Settings > Secrets > Actions > add new repository secret)
       with:
-        host: ${{ secrets.SONARQUBE_HOST }}
-        login: ${{ secrets.SONARQUBE_TOKEN }}
-        extraProperties: |
-          sonar.java.binaries=.
-
+        args:
+          -Dsonar.projectKey=Secret-Santa
+          -Dsonar.java.binaries=.
 
