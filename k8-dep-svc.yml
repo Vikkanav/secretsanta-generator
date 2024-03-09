@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: spring-boot-k8s
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -39,4 +39,4 @@ spec:
     - protocol: "TCP"
       port: 8080 # The port that the service is running on in the cluster
       targetPort: 8080 # The port exposed by the service
-  type: NodePort # type of the service.
+  type: LoadBalancer # type of the service.
